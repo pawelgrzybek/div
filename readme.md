@@ -53,5 +53,5 @@ Use predefined hotkeys to place window in common locations:
 
 ## Future improvements
 
-- multiscreen support
-- full screen mode detection
+- Multi screen support
+- Full screen mode detection
