@@ -24,18 +24,18 @@ Other windows managers requires similar procedure. It is not related with Div on
 
 I published a [detailed instruction on my personal website](https://pawelgrzybek.com/). Have a look if you are keen to understand a full potential of Div.
 
-1. Type "div" in Alfred window.
-2. Choose layout from predefined list.
-3. Choose custom bounds by passing 4 space separated values. For example "div .2 .2 .8 .8" will place top left corner of an app 20% from top and 20% from left edge of a screen, and bottom right corner 80% from top and 80% from left edge of a screen.
-4. Choose custom size by passing 2 space separated values. For example "div 800 600" will resize your window to 800px width and 600px height and place the window on the middle of a screen.
-5. Use hot keys to place window in common locations:
-- `⌃ ⌥ 1` Full
-- `⌃ ⌥ 2` Medium
-- `⌃ ⌥ 3` Small
-- `⌃ ⌥ ←` Left
-- `⌃ ⌥ →` Right
-- `⌃ ⌥ ↑` Top
-- `⌃ ⌥ ↓` Bottom
+- Type "div" in Alfred window.
+- Choose layout from predefined list.
+- Choose custom bounds by passing 4 space separated values. For example "div .2 .2 .8 .8" will place top left corner of an app 20% from top and 20% from left edge of a screen, and bottom right corner 80% from top and 80% from left edge of a screen.
+- Choose custom size by passing 2 space separated values. For example "div 800 600" will resize your window to 800px width and 600px height and place the window on the middle of a screen.
+- Use hot keys to place window in common locations:
+- - `⌃ ⌥ 1` Full
+- - `⌃ ⌥ 2` Medium
+- - `⌃ ⌥ 3` Small
+- - `⌃ ⌥ ←` Left
+- - `⌃ ⌥ →` Right
+- - `⌃ ⌥ ↑` Top
+- - `⌃ ⌥ ↓` Bottom
 
 ## Future improvements
 
