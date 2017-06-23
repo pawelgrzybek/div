@@ -275,6 +275,7 @@ set isCurrentAppInFullScreenMode to isItFullScreen()
 -- warn user that the Div doesn't work in full screen mode
 if isCurrentAppInFullScreenMode is true then
   display notification "Div doesn't work in full screen mode!" with title "Div" subtitle "Sorry dude :-(" sound name "Basso"
+  return
 end if
 
 -- if user provided 4 arguments, resize to custom bounds
