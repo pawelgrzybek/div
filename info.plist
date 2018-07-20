@@ -523,17 +523,25 @@ end if</string>
 	<dict>
 		<key>2D9B5608-8924-44BB-ACE3-06F124842A7D</key>
 		<dict>
+			<key>colorindex</key>
+			<integer>3</integer>
+			<key>note</key>
+			<string>Right</string>
 			<key>xpos</key>
 			<integer>100</integer>
 			<key>ypos</key>
-			<integer>440</integer>
+			<integer>500</integer>
 		</dict>
 		<key>3761243B-89C7-4838-8FBA-F867461E846B</key>
 		<dict>
+			<key>colorindex</key>
+			<integer>7</integer>
+			<key>note</key>
+			<string>Full</string>
 			<key>xpos</key>
 			<integer>100</integer>
 			<key>ypos</key>
-			<integer>800</integer>
+			<integer>920</integer>
 		</dict>
 		<key>4A3C9A90-372E-404D-AF8F-53F3F4FA6F61</key>
 		<dict>
@@ -544,6 +552,8 @@ end if</string>
 		</dict>
 		<key>51B425B5-E480-4D15-BC2F-9B4CED153DCF</key>
 		<dict>
+			<key>note</key>
+			<string>Div</string>
 			<key>xpos</key>
 			<integer>100</integer>
 			<key>ypos</key>
@@ -551,45 +561,67 @@ end if</string>
 		</dict>
 		<key>5B360532-D9CC-4FE9-93FB-75AF82787F4E</key>
 		<dict>
+			<key>colorindex</key>
+			<integer>3</integer>
+			<key>note</key>
+			<string>Top</string>
 			<key>xpos</key>
 			<integer>100</integer>
 			<key>ypos</key>
-			<integer>560</integer>
+			<integer>640</integer>
 		</dict>
 		<key>6FB3D7CB-E570-4171-8B47-B187079B14FD</key>
 		<dict>
+			<key>colorindex</key>
+			<integer>3</integer>
+			<key>note</key>
+			<string>Bottom</string>
 			<key>xpos</key>
 			<integer>100</integer>
 			<key>ypos</key>
-			<integer>680</integer>
+			<integer>780</integer>
 		</dict>
 		<key>7419E877-26B9-47B3-B60A-8CFF0D054F3F</key>
 		<dict>
+			<key>note</key>
+			<string>Predefined options</string>
 			<key>xpos</key>
 			<integer>100</integer>
 			<key>ypos</key>
-			<integer>200</integer>
+			<integer>220</integer>
 		</dict>
 		<key>A4ED796E-D87A-4F4E-9CC0-07A67EAFC2C5</key>
 		<dict>
+			<key>colorindex</key>
+			<integer>3</integer>
+			<key>note</key>
+			<string>Left</string>
 			<key>xpos</key>
 			<integer>100</integer>
 			<key>ypos</key>
-			<integer>320</integer>
+			<integer>360</integer>
 		</dict>
 		<key>B35E46CC-D76A-4961-B412-23E2297299F1</key>
 		<dict>
+			<key>colorindex</key>
+			<integer>7</integer>
+			<key>note</key>
+			<string>Small</string>
 			<key>xpos</key>
 			<integer>100</integer>
 			<key>ypos</key>
-			<integer>1040</integer>
+			<integer>1200</integer>
 		</dict>
 		<key>F4897C6D-A35C-467D-93C6-690D11710ED9</key>
 		<dict>
+			<key>colorindex</key>
+			<integer>7</integer>
+			<key>note</key>
+			<string>Medium</string>
 			<key>xpos</key>
 			<integer>100</integer>
 			<key>ypos</key>
-			<integer>920</integer>
+			<integer>1060</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
