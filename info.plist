@@ -283,8 +283,10 @@ if argsSize is 4 then
   tell application "System Events"
     set activeApp to name of first application process whose frontmost is true
     tell process activeApp
-      set position of window 1 to {(item 1 of args / 100) * item 1 of screenBounds, (item 2 of args / 100) * item 2 of screenBounds}
-      set size of window 1 to {((item 3 of args / 100) - (item 1 of args / 100)) * item 1 of screenBounds, ((item 4 of args / 100) - (item 2 of args / 100)) * item 2 of screenBounds}
+      repeat with x from 1 to (count windows)
+        set position of window x to {(item 1 of args / 100) * item 1 of screenBounds, (item 2 of args / 100) * item 2 of screenBounds}
+        set size of window x to {((item 3 of args / 100) - (item 1 of args / 100)) * item 1 of screenBounds, ((item 4 of args / 100) - (item 2 of args / 100)) * item 2 of screenBounds}
+      end repeat
     end tell
   end tell
 -- if user provided 2 arguments, resize to absolute size on the center of a window
@@ -295,8 +297,10 @@ else if argsSize is 2 then
     tell application "System Events"
       set activeApp to name of first application process whose frontmost is true
       tell process activeApp
-        set position of window 1 to {(item 1 of screenBounds - item 1 of args) / 2, (item 2 of screenBounds - item 2 of args) / 2}
-        set size of window 1 to {item 1 of args, item 2 of args}
+        repeat with x from 1 to (count windows)
+          set position of window x to {(item 1 of screenBounds - item 1 of args) / 2, (item 2 of screenBounds - item 2 of args) / 2}
+          set size of window x to {item 1 of args, item 2 of args}
+        end repeat
       end tell
     end tell
   end if
