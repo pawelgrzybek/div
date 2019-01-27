@@ -47,9 +47,12 @@ on run userQuery
   -- tell application "Finder"
   --   set myPath to container of (path to me) as text
   -- end tell
-  -- set theLib to load script file (myPath & "Divs.scptd")
-  -- set theResult to theLib's getScreenLayout()
-  -- set theResultMain to theLib's getScreenLayoutMain()
+  -- set divObjC to load script file (myPath & "divObjC.scptd")
+  -- set screensCount to divObjC's getScreensCount()
+  -- based on this one i can check if we deal with multiple monitos
+  -- if not, carry one
+  -- if yes, i can get the origin and possitin of a screen needed to count agains
+
 
   -- warn user that the Div doesn't work in full screen mode
   if isCurrentAppInFullScreenMode is true then
@@ -68,6 +71,13 @@ on run userQuery
           else
             set activeWindow to 1
           end if
+
+          -- set pTemp to position of window activeWindow
+          -- set sTemp to size of window activeWindow
+          -- log pTemp
+          -- log sTemp
+          -- based on this info i can find where the item is
+          -- and override screenBounds
 
           set position of window activeWindow to {(item 1 of args / 100) * item 1 of screenBounds, (item 2 of args / 100) * item 2 of screenBounds}
           set size of window activeWindow to {((item 3 of args / 100) - (item 1 of args / 100)) * item 1 of screenBounds, ((item 4 of args / 100) - (item 2 of args / 100)) * item 2 of screenBounds}
