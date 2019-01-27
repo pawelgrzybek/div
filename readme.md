@@ -1,6 +1,5 @@
 ![Div — simple Alfred windows manager](https://raw.githubusercontent.com/pawelgrzybek/div/master/icon.png)
 
-
 # Div — simple Alfred windows manager
 
 This is simple Alfred workflow to help you manage opened windows. It is simple (50 lines of applescript) but powerful tool. It allows you to create your own layouts, custom sizes and custom proportion.
@@ -14,8 +13,8 @@ Some of the mac OS apps are non-scriptable which means they are not working very
 3. Go to last Privacy tab
 4. On the left panel choose Accessibility
 5. Unlock access to preferences by clicking lock in bottom left corner and pass your password
-5. Click small `+` icon and add Alfred from the list.
-6. Done :)
+6. Click small `+` icon and add Alfred from the list.
+7. Done :)
 
 Other windows managers requires similar procedure. It is not related with Div only. If you use older operating system than El Capitan, have a look at great instruction on [Mizage website](http://mizage.com/help/accessibility.html).
 
@@ -53,5 +52,5 @@ Use predefined hotkeys to place window in common locations:
 
 ## Future improvements
 
-- Multi screen support
-- Full screen mode detection
+- [ ] Multi screen support
+- [x] Full screen mode detection
