@@ -73,6 +73,11 @@ on run userQuery
   -- end tell
   -- set divObjC to load script file (myPath & "divObjC.scptd")
   -- set screensCount to divObjC's getScreensCount()
+  -- set screensOrigins to divObjC's getScreensOrigins()
+  -- set screensSizes to divObjC's getScreensSizes()
+  -- log screensCount
+  -- log screensOrigins
+  -- log screensSizes
   -- based on this one i can check if we deal with multiple monitos
   -- if not, carry one
   -- if yes, i can get the origin and possitin of a screen needed to count agains
