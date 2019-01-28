@@ -53,6 +53,11 @@ on resizeApp(positionX, positionY, sizeX, sizeY)
   end tell
 end resizeApp
 
+-- display notification
+on displayNotification(_notification, _subtitle)
+  display notification _notification with title "Div" subtitle _subtitle sound name "Basso"
+end displayNotification
+
 -- on script invocation read the passed argumens and assign to userQuery
 on run userQuery
 
@@ -81,7 +86,9 @@ on run userQuery
 
   -- warn user that the Div doesn't work in full screen mode
   if isCurrentAppInFullScreenMode is true then
-    display notification "Div doesn't work in full screen mode!" with title "Div" subtitle "Sorry dude :-(" sound name "Basso"
+    set _notification to "Div doesn't work in full screen mode!"
+    set _subtitle to "Sorry dude :-("
+    displayNotification(_notification, _subtitle)
     return
   end if
 
@@ -95,7 +102,10 @@ on run userQuery
   -- if user provided 2 arguments, resize to absolute size on the center of a window
   else if argsSize is 2 then
     if item 1 of args as number > item 1 of screenBounds as number or item 2 of args as number > item 2 of screenBounds as number then
-      display notification "Buy a bigger one dude" with title "Div" subtitle "Screen not big enough :-(" sound name "Basso"
+      set _notification to "Buy a bigger one dude"
+
+      set _subtitle to "Screen not big enough :-("
+      displayNotification(_notification, _subtitle)
     else
       set positionX to (item 1 of screenBounds - item 1 of args) / 2
       set positionY to (item 2 of screenBounds - item 2 of args) / 2
@@ -105,7 +115,9 @@ on run userQuery
     end if
   -- Remmind your user how many arguments is required
   else
-    display notification "Two or four arguments (space separated) only!" with title "Div" subtitle "Sorry dude :-(" sound name "Basso"
+    set _notification to "Two or four arguments (space separated) only!"
+    set _subtitle to "Sorry dude :-("
+    displayNotification(_notification, _subtitle)
   end if
 
 end run
