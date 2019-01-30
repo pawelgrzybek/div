@@ -104,13 +104,18 @@ on run userQuery
     set sizeX to ((item 3 of args / 100) - (item 1 of args / 100)) * item 1 of screenBounds
     set sizeY to ((item 4 of args / 100) - (item 2 of args / 100)) * item 2 of screenBounds
     resizeApp(positionX, positionY, sizeX, sizeY)
+
   -- if user provided 2 arguments, resize to absolute size on the center of a window
   else if argsSize is 2 then
+
+    -- if monitor is not big enough to resize
     if item 1 of args as number > item 1 of screenBounds as number or item 2 of args as number > item 2 of screenBounds as number then
       set _notification to "Buy a bigger one dude"
 
       set _subtitle to "Screen not big enough :-("
       displayNotification(_notification, _subtitle)
+
+    -- otherwise resize to desired size
     else
       set positionX to (item 1 of screenBounds - item 1 of args) / 2
       set positionY to (item 2 of screenBounds - item 2 of args) / 2
@@ -118,7 +123,8 @@ on run userQuery
       set sizeY to item 2 of args
       resizeApp(positionX, positionY, sizeX, sizeY)
     end if
-  -- Remmind your user how many arguments is required
+
+  -- Otherwise remmind your user how many arguments is required
   else
     set _notification to "Two or four arguments (space separated) only!"
     set _subtitle to "Sorry dude :-("
