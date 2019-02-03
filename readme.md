@@ -49,8 +49,3 @@ Use predefined hotkeys to place window in common locations:
 - `⌃ ⌥ →` Right
 - `⌃ ⌥ ↑` Top
 - `⌃ ⌥ ↓` Bottom
-
-## Future improvements
-
-- [ ] Multi screen support
-- [x] Full screen mode detection

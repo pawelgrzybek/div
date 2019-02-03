@@ -67,6 +67,27 @@ on getScreenSize(divObjC)
   return {_width, _height}
 end getScreenSize
 
+-- return active screens size
+on getScreenOrigin(divObjC)
+  set screensCount to divObjC's getScreensCount()
+  set screensSizes to divObjC's getScreensSizes()
+  set screensOrigins to divObjC's getScreensOrigins()
+
+  if screensCount is 1
+    set _x to item 1 of item 1 of screensOrigins
+    set _y to item 2 of item 1 of screensOrigins
+  else
+    set activeSceenIndex to getActiveSceenIndex(divObjC)
+    set activeSceenHeight to item 2 of item activeSceenIndex of screensSizes
+    set mainSceenHeight to item 2 of item 1 of screensSizes
+    set screensHeightDiff to mainSceenHeight - activeSceenHeight
+    set _x to item 1 of item activeSceenIndex of screensOrigins
+    set _y to item 2 of item activeSceenIndex of screensOrigins - screensHeightDiff
+  end if
+
+  return {_x, _y}
+end getScreenOrigin
+
 -- convert arguments to list
 on converttoList(delimiter, input)
   local delimiter, input, ASTID
@@ -116,26 +137,10 @@ on run userQuery
 
   -- set some variables
   set screenSize to getScreenSize(divObjC)
+  set screensOrigin to getScreenOrigin(divObjC)
   set args to converttoList(" ", userQuery)
   set argsSize to count of args
   set isCurrentAppInFullScreenMode to isItFullScreen()
-
-  -- set screensCount to divObjC's getScreensCount()
-  -- set screensOrigins to divObjC's getScreensOrigins()
-  -- set screensSizes to divObjC's getScreensSizes()
-  -- log screensCount
-  -- log screensOrigins
-  -- log screensSizes
-  -- based on this one i can check if we deal with multiple monitos
-  -- if not, carry one
-  -- if yes, i can get the origin and possitin of a screen needed to count agains
-
-    -- set pTemp to position of window activeWindow
-    -- set sTemp to size of window activeWindow
-    -- log pTemp
-    -- log sTemp
-    -- based on this info i can find where the item is
-    -- and override screenSize
 
   -- warn user that the Div doesn't work in full screen mode
   if isCurrentAppInFullScreenMode is true then
@@ -147,8 +152,8 @@ on run userQuery
 
   -- if user provided 4 arguments, resize to custom bounds
   if argsSize is 4 then
-    set positionX to (item 1 of args / 100) * item 1 of screenSize
-    set positionY to (item 2 of args / 100) * item 2 of screenSize
+    set positionX to ((item 1 of args / 100) * item 1 of screenSize) + item 1 of screensOrigin
+    set positionY to ((item 2 of args / 100) * item 2 of screenSize) - item 2 of screensOrigin
     set sizeX to ((item 3 of args / 100) - (item 1 of args / 100)) * item 1 of screenSize
     set sizeY to ((item 4 of args / 100) - (item 2 of args / 100)) * item 2 of screenSize
     resizeApp(positionX, positionY, sizeX, sizeY)
@@ -165,8 +170,8 @@ on run userQuery
 
     -- otherwise resize to desired size
     else
-      set positionX to (item 1 of screenSize - item 1 of args) / 2
-      set positionY to (item 2 of screenSize - item 2 of args) / 2
+      set positionX to ((item 1 of screenSize - item 1 of args) / 2) + item 1 of screensOrigin
+      set positionY to ((item 2 of screenSize - item 2 of args) / 2) - item 2 of screensOrigin
       set sizeX to item 1 of args
       set sizeY to item 2 of args
       resizeApp(positionX, positionY, sizeX, sizeY)
