@@ -51,7 +51,7 @@ on getActiveSceenIndex(divObjC)
 end getActiveSceenIndex
 
 -- return active screens size
-on screenSize(divObjC)
+on getScreenSize(divObjC)
   set screensCount to divObjC's getScreensCount()
   set screensSizes to divObjC's getScreensSizes()
 
@@ -65,7 +65,7 @@ on screenSize(divObjC)
   end if
 
   return {_width, _height}
-end screenSize
+end getScreenSize
 
 -- convert arguments to list
 on converttoList(delimiter, input)
@@ -115,7 +115,7 @@ on run userQuery
   set divObjC to load script file (myPath & "divObjC.scptd")
 
   -- set some variables
-  set screenBounds to screenSize(divObjC)
+  set screenSize to getScreenSize(divObjC)
   set args to converttoList(" ", userQuery)
   set argsSize to count of args
   set isCurrentAppInFullScreenMode to isItFullScreen()
@@ -135,7 +135,7 @@ on run userQuery
     -- log pTemp
     -- log sTemp
     -- based on this info i can find where the item is
-    -- and override screenBounds
+    -- and override screenSize
 
   -- warn user that the Div doesn't work in full screen mode
   if isCurrentAppInFullScreenMode is true then
@@ -147,17 +147,17 @@ on run userQuery
 
   -- if user provided 4 arguments, resize to custom bounds
   if argsSize is 4 then
-    set positionX to (item 1 of args / 100) * item 1 of screenBounds
-    set positionY to (item 2 of args / 100) * item 2 of screenBounds
-    set sizeX to ((item 3 of args / 100) - (item 1 of args / 100)) * item 1 of screenBounds
-    set sizeY to ((item 4 of args / 100) - (item 2 of args / 100)) * item 2 of screenBounds
+    set positionX to (item 1 of args / 100) * item 1 of screenSize
+    set positionY to (item 2 of args / 100) * item 2 of screenSize
+    set sizeX to ((item 3 of args / 100) - (item 1 of args / 100)) * item 1 of screenSize
+    set sizeY to ((item 4 of args / 100) - (item 2 of args / 100)) * item 2 of screenSize
     resizeApp(positionX, positionY, sizeX, sizeY)
 
   -- if user provided 2 arguments, resize to absolute size on the center of a window
   else if argsSize is 2 then
 
     -- if monitor is not big enough to resize
-    if item 1 of args as number > item 1 of screenBounds as number or item 2 of args as number > item 2 of screenBounds as number then
+    if item 1 of args as number > item 1 of screenSize as number or item 2 of args as number > item 2 of screenSize as number then
       set _notification to "Buy a bigger one dude"
 
       set _subtitle to "Screen not big enough :-("
@@ -165,8 +165,8 @@ on run userQuery
 
     -- otherwise resize to desired size
     else
-      set positionX to (item 1 of screenBounds - item 1 of args) / 2
-      set positionY to (item 2 of screenBounds - item 2 of args) / 2
+      set positionX to (item 1 of screenSize - item 1 of args) / 2
+      set positionY to (item 2 of screenSize - item 2 of args) / 2
       set sizeX to item 1 of args
       set sizeY to item 2 of args
       resizeApp(positionX, positionY, sizeX, sizeY)
