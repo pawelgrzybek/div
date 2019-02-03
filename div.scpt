@@ -9,13 +9,61 @@ on isItFullScreen()
   return result as boolean
 end isItFullScreen
 
--- return screens size
-on screenSize()
-  tell application "Finder"
-    set _b to bounds of window of desktop
-    set _width to item 3 of _b
-    set _height to item 4 of _b
+on getActiveSceenIndex(divObjC)
+  set screensCount to divObjC's getScreensCount()
+  set screensSizes to divObjC's getScreensSizes()
+  set screensOrigins to divObjC's getScreensOrigins()
+
+  tell application "System Events"
+    set activeApp to name of first application process whose frontmost is true
+    tell process activeApp
+
+      if subrole of window 1 is "AXUnknown" then
+        set activeWindow to 2
+      else
+        set activeWindow to 1
+      end if
+
+      set positionOfCurrentApp to position of window activeWindow
+      set sizeOfCurrentApp to size of window activeWindow
+      set centerOfCurrentApp to (item 1 of positionOfCurrentApp) + (item 1 of sizeOfCurrentApp / 2)
+
+      set activeScreenIndex to 1
+      set distanceFromDisplayCenter to 9999
+
+      repeat with screenIndex from 1 to screensCount
+        set currentScreenXorigin to item 1 of item screenIndex of screensOrigins
+        set currentScreenXsize to item 1 of item screenIndex of screensSizes
+        set currentScreenCenter to currentScreenXorigin + (currentScreenXsize / 2)
+        set currentScreenCenterDistanceToAppCenter to centerOfCurrentApp - currentScreenCenter
+        if currentScreenCenterDistanceToAppCenter < 0 then set currentScreenCenterDistanceToAppCenter to -currentScreenCenterDistanceToAppCenter
+
+        if currentScreenCenterDistanceToAppCenter < distanceFromDisplayCenter
+          set activeScreenIndex to screenIndex
+          set distanceFromDisplayCenter to currentScreenCenterDistanceToAppCenter
+        end if
+      end repeat
+
+    end tell
   end tell
+
+  return activeScreenIndex
+end getActiveSceenIndex
+
+-- return active screens size
+on screenSize(divObjC)
+  set screensCount to divObjC's getScreensCount()
+
+  if screensCount is 1
+    set _width to item 1 of item 1 of screensSizes
+    set _height to item 2 of item 1 of screensSizes
+  else
+    set activeSceenIndex to getActiveSceenIndex(divObjC)
+    set screensSizes to divObjC's getScreensSizes()
+    set _width to item 1 of item activeSceenIndex of screensSizes
+    set _height to item 2 of item activeSceenIndex of screensSizes
+  end if
+
   return {_width, _height}
 end screenSize
 
@@ -60,18 +108,18 @@ end displayNotification
 
 -- on script invocation read the passed argumens and assign to userQuery
 on run userQuery
+  -- Load Objective-C script
+  tell application "Finder"
+    set myPath to container of (path to me) as text
+  end tell
+  set divObjC to load script file (myPath & "divObjC.scptd")
 
   -- set some variables
-  set screenBounds to screenSize()
+  set screenBounds to screenSize(divObjC)
   set args to converttoList(" ", userQuery)
   set argsSize to count of args
   set isCurrentAppInFullScreenMode to isItFullScreen()
 
-  -- Load Objective-C script
-  -- tell application "Finder"
-  --   set myPath to container of (path to me) as text
-  -- end tell
-  -- set divObjC to load script file (myPath & "divObjC.scptd")
   -- set screensCount to divObjC's getScreensCount()
   -- set screensOrigins to divObjC's getScreensOrigins()
   -- set screensSizes to divObjC's getScreensSizes()
