@@ -40,7 +40,7 @@ Choose custom size by passing 2 space separated values. For example `div 800 600
 
 ## Hotkeys
 
-Use predefined hotkeys to place window in common locations:
+Use predefined settings and add custom hotkeys to them to place windows in common locations:
 
 - `⌃ ⌥ 1` Full
 - `⌃ ⌥ 2` Medium
