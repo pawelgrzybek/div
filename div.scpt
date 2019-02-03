@@ -53,13 +53,13 @@ end getActiveSceenIndex
 -- return active screens size
 on screenSize(divObjC)
   set screensCount to divObjC's getScreensCount()
+  set screensSizes to divObjC's getScreensSizes()
 
   if screensCount is 1
     set _width to item 1 of item 1 of screensSizes
     set _height to item 2 of item 1 of screensSizes
   else
     set activeSceenIndex to getActiveSceenIndex(divObjC)
-    set screensSizes to divObjC's getScreensSizes()
     set _width to item 1 of item activeSceenIndex of screensSizes
     set _height to item 2 of item activeSceenIndex of screensSizes
   end if
