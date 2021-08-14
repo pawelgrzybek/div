@@ -255,29 +255,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<true/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>osascript ./div.scpt {query}</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>8D2FF8B9-7AED-414C-BEA5-CE589A6CF98C</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>action</key>
 				<integer>0</integer>
 				<key>argument</key>
@@ -305,6 +282,29 @@
 			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
 			<string>5B360532-D9CC-4FE9-93FB-75AF82787F4E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<true/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>osascript ./div.scpt {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>8D2FF8B9-7AED-414C-BEA5-CE589A6CF98C</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -452,9 +452,9 @@
 			<key>note</key>
 			<string>Right</string>
 			<key>xpos</key>
-			<integer>100</integer>
+			<integer>60</integer>
 			<key>ypos</key>
-			<integer>500</integer>
+			<integer>480</integer>
 		</dict>
 		<key>3761243B-89C7-4838-8FBA-F867461E846B</key>
 		<dict>
@@ -463,18 +463,18 @@
 			<key>note</key>
 			<string>Full</string>
 			<key>xpos</key>
-			<integer>100</integer>
+			<integer>60</integer>
 			<key>ypos</key>
-			<integer>920</integer>
+			<integer>900</integer>
 		</dict>
 		<key>51B425B5-E480-4D15-BC2F-9B4CED153DCF</key>
 		<dict>
 			<key>note</key>
 			<string>Div</string>
 			<key>xpos</key>
-			<integer>100</integer>
+			<integer>60</integer>
 			<key>ypos</key>
-			<integer>80</integer>
+			<integer>60</integer>
 		</dict>
 		<key>5B360532-D9CC-4FE9-93FB-75AF82787F4E</key>
 		<dict>
@@ -483,9 +483,9 @@
 			<key>note</key>
 			<string>Top</string>
 			<key>xpos</key>
-			<integer>100</integer>
+			<integer>60</integer>
 			<key>ypos</key>
-			<integer>640</integer>
+			<integer>620</integer>
 		</dict>
 		<key>6FB3D7CB-E570-4171-8B47-B187079B14FD</key>
 		<dict>
@@ -494,25 +494,25 @@
 			<key>note</key>
 			<string>Bottom</string>
 			<key>xpos</key>
-			<integer>100</integer>
+			<integer>60</integer>
 			<key>ypos</key>
-			<integer>780</integer>
+			<integer>760</integer>
 		</dict>
 		<key>7419E877-26B9-47B3-B60A-8CFF0D054F3F</key>
 		<dict>
 			<key>note</key>
 			<string>Predefined options</string>
 			<key>xpos</key>
-			<integer>100</integer>
+			<integer>60</integer>
 			<key>ypos</key>
-			<integer>220</integer>
+			<integer>200</integer>
 		</dict>
 		<key>8D2FF8B9-7AED-414C-BEA5-CE589A6CF98C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>390</integer>
+			<integer>350</integer>
 			<key>ypos</key>
-			<integer>640</integer>
+			<integer>620</integer>
 		</dict>
 		<key>A4ED796E-D87A-4F4E-9CC0-07A67EAFC2C5</key>
 		<dict>
@@ -521,9 +521,9 @@
 			<key>note</key>
 			<string>Left</string>
 			<key>xpos</key>
-			<integer>100</integer>
+			<integer>60</integer>
 			<key>ypos</key>
-			<integer>360</integer>
+			<integer>340</integer>
 		</dict>
 		<key>B35E46CC-D76A-4961-B412-23E2297299F1</key>
 		<dict>
@@ -532,9 +532,9 @@
 			<key>note</key>
 			<string>Small</string>
 			<key>xpos</key>
-			<integer>100</integer>
+			<integer>60</integer>
 			<key>ypos</key>
-			<integer>1200</integer>
+			<integer>1180</integer>
 		</dict>
 		<key>F4897C6D-A35C-467D-93C6-690D11710ED9</key>
 		<dict>
@@ -543,9 +543,9 @@
 			<key>note</key>
 			<string>Medium</string>
 			<key>xpos</key>
-			<integer>100</integer>
+			<integer>60</integer>
 			<key>ypos</key>
-			<integer>1060</integer>
+			<integer>1040</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
