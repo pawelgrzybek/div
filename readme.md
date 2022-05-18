@@ -2,7 +2,7 @@
 
 # Div — simple Alfred windows manager
 
-This is simple Alfred workflow to help you manage opened windows. It is simple (50 lines of applescript) but powerful tool. It allows you to create your own layouts, custom sizes and custom proportion.
+This is simple Alfred workflow to help you manage opened windows. It is simple (see the short applescript in div.scpt) but powerful tool. It allows you to create your own layouts, custom sizes and custom proportion.
 
 ## Requirements
 
